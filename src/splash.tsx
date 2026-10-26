@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -93,7 +93,18 @@ const DumbbellIcon = () => (
   </Svg>
 );
 
-export default function SplashScreen() {
+export default function SplashScreen({ navigation }: any) {
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.replace('FitnessGoal');
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, [navigation]);
+
+  // Keep your existing return and UI here
+  
   return (
     <View style={styles.container}>
       <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />

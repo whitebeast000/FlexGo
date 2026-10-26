@@ -4,7 +4,7 @@ import Background from './background'
 import { CardioArt, FlexibilityArt, StrengthArt } from './WorkoutArt'
 
 
-export default function Workout() {
+export default function Workout({ navigation }: any) {
   return (
     <View style={styles.container}>
          <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
@@ -18,7 +18,8 @@ export default function Workout() {
 
             <View style={styles.workoutContainer}>
 
-                <Pressable style={[styles.glass, styles.workoutPressableContainer]} >
+                <Pressable style={[styles.glass, styles.workoutPressableContainer]}
+                onPress={() => navigation.navigate('PushupVariations')} >
 
                         <View style={styles.art}><StrengthArt/></View>
                     <Text style={styles.excerciseName}>Strength</Text>

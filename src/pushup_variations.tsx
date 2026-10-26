@@ -2,7 +2,7 @@ import { StyleSheet, Text,Pressable,StatusBar, View } from 'react-native'
 import React from 'react'
 import Background from './background'
 
-export default function PushupVariations() {
+export default function PushupVariations({navigation}: any) {
   return (
     <View style={styles.container}>
          <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
@@ -17,7 +17,9 @@ export default function PushupVariations() {
 
         <View style={styles.pushupContainer}>
 
-        <Pressable style={[styles.glass, styles.pressableContainer]} >
+        <Pressable style={[styles.glass, styles.pressableContainer]} 
+        onPress={()=> navigation.navigate('SpecificPushupPage')}
+        >
       <Text style={styles.pushupName}>Standard Push-up</Text>
       <Text style={styles.pushupLevel}>Beginner</Text>
         </Pressable>

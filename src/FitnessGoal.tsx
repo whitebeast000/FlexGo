@@ -2,7 +2,8 @@ import { StyleSheet, Text, Pressable, StatusBar, View } from 'react-native'
 import React from 'react'
 import Background from './background'
 
-export default function fitness_goal() {
+
+export default function FitnessGoal({ navigation }: any) {
     return (
         <View style={styles.container}>
             <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
@@ -26,10 +27,15 @@ export default function fitness_goal() {
                     <Text style={styles.fitnessGoalDescription}>Progressive strength training</Text>
                 </Pressable>
 
-                <Pressable style={[styles.glass, styles.pressableContainer]} >
+                <Pressable
+                    style={[styles.glass, styles.pressableContainer]}
+                    onPress={() => navigation.navigate('Workout')}
+                    >
                     <Text style={styles.fitnessGoalName}>Stay active</Text>
-                    <Text style={styles.fitnessGoalDescription}>Keep a steady daily routine </Text>
-                </Pressable>
+                    <Text style={styles.fitnessGoalDescription}>
+                        Keep a steady daily routine
+                    </Text>
+                </Pressable>    
 
                 <Pressable style={[styles.glass, styles.pressableContainer]} >
                     <Text style={styles.fitnessGoalName}>Improve flexibility</Text>
@@ -41,6 +47,7 @@ export default function fitness_goal() {
         </View>
     )
 }
+
 
 const styles = StyleSheet.create({
 
@@ -63,9 +70,6 @@ const styles = StyleSheet.create({
         flex: 0,
         justifyContent: 'flex-start',
         padding: 16,
-        alignItems: 'center'
-
-
     },
     heading: {
         color: 'white',
